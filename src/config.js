@@ -18,16 +18,12 @@ module.exports = {
     {
       label: 'About me',
       path: '/pages/about'
-    },
-    {
-      label: 'Contact me',
-      path: '/pages/contacts'
     }
   ],
   author: {
     name: 'Felipe Cardozo',
     photo: '/photo.jpg',
-    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+    bio: `${calculateAge(new Date('1997-03-07'))} Years old. Developer and enthusiast of .NET and JS/TS. Studying Computer Engineering and writing applications in his free time.`,
     contacts: {
       email: '',
       facebook: '',
@@ -46,3 +42,9 @@ module.exports = {
     }
   }
 };
+
+function calculateAge(birthday) { // birthday is a date
+  const ageDifMs = Date.now() - birthday.getTime();
+  const ageDate = new Date(ageDifMs); // miliseconds from epoch
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
