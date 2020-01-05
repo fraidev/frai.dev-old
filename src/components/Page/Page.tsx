@@ -3,14 +3,14 @@ import styles from './Page.module.scss';
 
 type Props = {
   title?: string,
-  children: React.Node
+  children: Node
 };
 
 const Page = ({ title, children }: Props) => {
-  const pageRef = useRef();
+  const pageRef = useRef<null | HTMLElement>(null) as React.MutableRefObject<HTMLInputElement>;;
 
   useEffect(() => {
-    pageRef.current.scrollIntoView();
+    pageRef?.current?.scrollIntoView();
   });
 
   return (

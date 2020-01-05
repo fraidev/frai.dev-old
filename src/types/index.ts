@@ -1,5 +1,5 @@
 // @flow strict
-import type { Node as ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 export type RenderCallback = {
   // $FlowFixMe
@@ -7,10 +7,10 @@ export type RenderCallback = {
 }
 
 export type Entry = {
-  getIn: (string[]) => string;
+  getIn: (datas: string[]) => string;
 }
 
-export type WidgetFor = (string) => string;
+export type WidgetFor = (arg0: string) => string;
 
 export type PageContext = {
   tag: string,

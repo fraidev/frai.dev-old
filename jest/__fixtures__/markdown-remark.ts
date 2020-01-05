@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = {
+export = {
   markdownRemark: {
     id: 'test-123',
     html: '<p>test</p>',

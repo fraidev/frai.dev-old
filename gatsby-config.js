@@ -1,6 +1,6 @@
 'use strict';
 
-const siteConfig = require('./src/config.js');
+const siteConfig = require('./src/config');
 const postCssPlugins = require('./postcss-config.js');
 
 module.exports = {
@@ -202,7 +202,7 @@ module.exports = {
         }
       }
     },
-    'gatsby-plugin-flow',
     'gatsby-plugin-optimize-svgs',
+    'gatsby-plugin-typescript'
   ]
 };

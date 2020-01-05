@@ -1,12 +1,10 @@
-'use strict';
+import path from 'path';
+import _ from 'lodash';
+import createCategoriesPages from './pagination/create-categories-pages.js';
+import createTagsPages from './pagination/create-tags-pages.js';
+import createPostsPages from './pagination/create-posts-pages.js';
 
-const path = require('path');
-const _ = require('lodash');
-const createCategoriesPages = require('./pagination/create-categories-pages.js');
-const createTagsPages = require('./pagination/create-tags-pages.js');
-const createPostsPages = require('./pagination/create-posts-pages.js');
-
-const createPages = async ({ graphql, actions }) => {
+export const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   // 404
@@ -70,6 +68,3 @@ const createPages = async ({ graphql, actions }) => {
   await createCategoriesPages(graphql, actions);
   await createPostsPages(graphql, actions);
 };
-
-
-module.exports = createPages;

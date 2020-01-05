@@ -1,10 +1,13 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base", "prettier/@typescript-eslint", "prettier/react", "plugin:prettier/recommended"],
   "env": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "browser": true,
     "node": true,
-    "es6": true,
     "jest/globals": true
   },
   "plugins": [

@@ -1,10 +1,9 @@
 // @flow strict
-import React from 'react';
 import renderer from 'react-test-renderer';
 import { useStaticQuery, StaticQuery } from 'gatsby';
-import siteMetadata from '../../../jest/__fixtures__/site-metadata';
+import { siteMetadata } from '../../../jest/__fixtures__/site-metadata';
 import Layout from './Layout';
-import type { RenderCallback } from '../../types';
+import { RenderCallback } from '../../types';
 
 describe('Layout', () => {
   const props = {
@@ -15,12 +14,17 @@ describe('Layout', () => {
   };
 
   beforeEach(() => {
-    StaticQuery.mockImplementationOnce(
+    let staticQueryMock = StaticQuery as jest.Mock
+    let useStaticQueryMock = useStaticQuery as jest.Mock
+
+    staticQueryMock.mockImplementationOnce(
       ({ render }: RenderCallback) => (
         render(props)
       ),
-      useStaticQuery.mockReturnValue(props)
+      //TODO ver isso aqui
+      // useStaticQueryMock.mockReturnValue(props)
     );
+
   });
 
   it('renders correctly', () => {

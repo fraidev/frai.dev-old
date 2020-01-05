@@ -1,12 +1,10 @@
-'use strict';
-
-const React = require('react');
-const siteConfig = require('../src/config.js');
+import React from 'react';
+import siteConfig from '../src/config.js';
 
 // eslint-disable-next-line import/no-webpack-loader-syntax, import/no-unresolved
 const katexStylesheet = require('!css-loader!../static/css/katex/katex.min.css');
 
-const onRenderBody = ({ setHeadComponents }) => {
+export const onRenderBody = ({ setHeadComponents }) => {
   const { useKatex } = siteConfig;
 
   if (useKatex) {
@@ -18,5 +16,3 @@ const onRenderBody = ({ setHeadComponents }) => {
     ]);
   }
 };
-
-module.exports = onRenderBody;
