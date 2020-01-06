@@ -9,7 +9,7 @@ type Props = {
     bio: string,
     photo: string
   },
-  isIndex: ?boolean
+  isIndex: boolean | null
 };
 
 const Author = ({ author, isIndex }: Props) => (

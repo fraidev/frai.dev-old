@@ -5,9 +5,7 @@ import Icon from '../../Icon';
 import styles from './Contacts.module.scss';
 
 type Props = {
-  contacts: {
-    [string]: string,
-  },
+  contacts: any,
 };
 
 const Contacts = ({ contacts }: Props) => (

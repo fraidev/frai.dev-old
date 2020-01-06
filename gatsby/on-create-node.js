@@ -1,7 +1,9 @@
+'use strict';
+
 const _ = require('lodash');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-export const onCreateNode = ({ node, actions, getNode }) => {
+const onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type === 'MarkdownRemark') {
@@ -32,3 +34,5 @@ export const onCreateNode = ({ node, actions, getNode }) => {
     }
   }
 };
+
+module.exports = onCreateNode;

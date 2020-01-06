@@ -1,11 +1,10 @@
-// @flow strict
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Page from '../components/Page';
 import { useSiteMetadata } from '../hooks';
-import type { MarkdownRemark } from '../types';
+import { MarkdownRemark } from '../types';
 
 type Props = {
   data: {

@@ -7,32 +7,32 @@ import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
 import { useSiteMetadata } from '../hooks';
-import type { PageContext, AllMarkdownRemark } from '../types';
+import { AllMarkdownRemark, PageContext } from '../types';
 
 type Props = {
   data: AllMarkdownRemark,
   pageContext: PageContext
 };
 
-const IndexTemplate = ({ data, pageContext }: Props) => {
+const TagTemplate = ({ data, pageContext }: Props) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
 
   const {
+    tag,
     currentPage,
-    hasNextPage,
-    hasPrevPage,
     prevPagePath,
-    nextPagePath
+    nextPagePath,
+    hasPrevPage,
+    hasNextPage
   } = pageContext;
 
-
   const { edges } = data.allMarkdownRemark;
-  const pageTitle = currentPage > 0 ? `Posts - Page ${currentPage} - ${siteTitle}` : siteTitle;
+  const pageTitle = currentPage > 0 ? `All Posts tagged as "${tag}" - Page ${currentPage} - ${siteTitle}` : `All Posts tagged as "${tag}" - ${siteTitle}`;
 
   return (
     <Layout title={pageTitle} description={siteSubtitle}>
-      <Sidebar isIndex />
-      <Page>
+      <Sidebar />
+      <Page title={tag}>
         <Feed edges={edges} />
         <Pagination
           prevPagePath={prevPagePath}
@@ -46,11 +46,17 @@ const IndexTemplate = ({ data, pageContext }: Props) => {
 };
 
 export const query = graphql`
-  query IndexTemplate($postsLimit: Int!, $postsOffset: Int!) {
+  query TagPage($tag: String, $postsLimit: Int!, $postsOffset: Int!) {
+    site {
+      siteMetadata {
+        title
+        subtitle
+      }
+    }
     allMarkdownRemark(
         limit: $postsLimit,
         skip: $postsOffset,
-        filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } },
+        filter: { frontmatter: { tags: { in: [$tag] }, template: { eq: "post" }, draft: { ne: true } } },
         sort: { order: DESC, fields: [frontmatter___date] }
       ){
       edges {
@@ -71,4 +77,4 @@ export const query = graphql`
   }
 `;
 
-export default IndexTemplate;
+export default TagTemplate;

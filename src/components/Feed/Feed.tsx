@@ -1,9 +1,8 @@
-// @flow strict
 import React from 'react';
 import moment from 'moment';
 import { Link } from 'gatsby';
 import { Edges } from '../../types';
-import styles from 'Feed.module.scss';
+import styles from './Feed.module.scss';
 
 type Props = {
   edges: Edges
@@ -19,7 +18,7 @@ const Feed = ({ edges }: Props) => (
           </time>
           <span className={styles['feed__item-meta-divider']} />
           <span className={styles['feed__item-meta-category']}>
-            <Link to={edge.node.fields.categorySlug} className={styles['feed__item-meta-category-link']}>{edge.node.frontmatter.category}</Link>
+            <Link to={edge.node.fields.categorySlug as string} className={styles['feed__item-meta-category-link']}>{edge.node.frontmatter.category}</Link>
           </span>
         </div>
         <h2 className={styles['feed__item-title']}>

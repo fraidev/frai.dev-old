@@ -1,10 +1,12 @@
-import path from 'path';
-import _ from 'lodash';
-import createCategoriesPages from './pagination/create-categories-pages.js';
-import createTagsPages from './pagination/create-tags-pages.js';
-import createPostsPages from './pagination/create-posts-pages.js';
+'use strict';
 
-export const createPages = async ({ graphql, actions }) => {
+const path = require('path');
+const _ = require('lodash');
+const createCategoriesPages = require('./pagination/create-categories-pages.js');
+const createTagsPages = require('./pagination/create-tags-pages.js');
+const createPostsPages = require('./pagination/create-posts-pages.js');
+
+const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   // 404
@@ -51,13 +53,13 @@ export const createPages = async ({ graphql, actions }) => {
     if (_.get(edge, 'node.frontmatter.template') === 'page') {
       createPage({
         path: edge.node.fields.slug,
-        component: path.resolve('./src/templates/page-template.js'),
+        component: path.resolve('./src/templates/page-template.tsx'),
         context: { slug: edge.node.fields.slug }
       });
     } else if (_.get(edge, 'node.frontmatter.template') === 'post') {
       createPage({
         path: edge.node.fields.slug,
-        component: path.resolve('./src/templates/post-template.js'),
+        component: path.resolve('./src/templates/post-template.tsx'),
         context: { slug: edge.node.fields.slug }
       });
     }
@@ -68,3 +70,6 @@ export const createPages = async ({ graphql, actions }) => {
   await createCategoriesPages(graphql, actions);
   await createPostsPages(graphql, actions);
 };
+
+
+module.exports = createPages;
