@@ -18,4 +18,4 @@ COPY --from=builder /usr/src/app/public /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["nginx", "-g"]
+CMD ["nginx", "-g", "daemon off;"]
