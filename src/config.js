@@ -1,8 +1,8 @@
 module.exports = {
   url: 'https://lumen.netlify.com',
   pathPrefix: '/',
-  title: 'Blog by John Doe',
-  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+  title: 'Frai.dev | Felipe Cardozo',
+  subtitle: 'Felipe Cardozo Blog.',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
