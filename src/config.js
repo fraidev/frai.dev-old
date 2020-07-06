@@ -1,5 +1,5 @@
 module.exports = {
-  url: 'https://lumen.netlify.com',
+  url: 'https://frai.dev',
   pathPrefix: '/',
   title: 'Frai.dev | Felipe Cardozo',
   subtitle: 'Felipe Cardozo Blog.',
