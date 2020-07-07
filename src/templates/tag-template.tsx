@@ -1,20 +1,20 @@
-// @flow strict
-import React from 'react';
-import { graphql } from 'gatsby';
+
 import Layout from '../components/Layout';
 import Sidebar from '../components/Sidebar';
 import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
 import { useSiteMetadata } from '../hooks';
-import { AllMarkdownRemark, PageContext } from '../types';
+import { PageContext } from '../types';
+import { graphql } from 'gatsby';
+import React from 'react';
 
 type Props = {
-  data: AllMarkdownRemark,
+  data: any,
   pageContext: PageContext
 };
 
-const TagTemplate = ({ data, pageContext }: Props) => {
+const TagTemplate: React.FC<Props> = ({ data, pageContext }: Props) => {
   const { title: siteTitle, subtitle: siteSubtitle } = useSiteMetadata();
 
   const {

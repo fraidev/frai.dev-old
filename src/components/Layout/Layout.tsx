@@ -1,18 +1,18 @@
-// @flow strict
-import React, { ReactNode } from 'react';
-import Helmet from 'react-helmet';
-import { withPrefix } from 'gatsby';
+
 import { useSiteMetadata } from '../../hooks';
 import styles from './Layout.module.scss';
+import { withPrefix } from 'gatsby';
+import Helmet from 'react-helmet';
+import React, { ReactNode } from 'react';
 
 type Props = {
   children: ReactNode,
   title: string,
   description?: string,
-  socialImage? :string
+  socialImage?: string
 };
 
-const Layout = ({
+const Layout: React.FC<Props> = ({
   children,
   title,
   description,

@@ -1,18 +1,28 @@
 {
-    "compilerOptions": {
-      "module": "commonjs",
-      "target": "esnext",
-      "jsx": "preserve",
-      "lib": ["dom", "es2015", "es2017"],
-      "strict": true,
-      "noEmit": true,
-      "isolatedModules": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "removeComments": false,
-      "preserveConstEnums": true
-    },
-    "include": ["./src/**/*"]
-  }
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": true,
+    "declaration": false,
+    "importHelpers": true,
+    "jsx": "react",
+    "lib": [
+      "dom",
+      "ESNext"
+    ],
+    "module": "commonjs",
+    "noEmitHelpers": false,
+    "noImplicitAny": true,
+    "noResolve": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "strictNullChecks": true,
+    "target": "ESNext"
+  },
+  "include": [
+    "./src/**/*"
+  ]
+}

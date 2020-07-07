@@ -1,8 +1,6 @@
-// @flow strict
 import { ReactNode } from 'react';
 
 export type RenderCallback = {
-  // $FlowFixMe
   render: (data: any) => ReactNode;
 }
 
@@ -24,7 +22,7 @@ export type PageContext = {
 
 export type Node = {
   fields: {
-    slug: string,
+    slug?: string,
     categorySlug?: string,
     tagSlugs?: string[]
   },
@@ -36,17 +34,17 @@ export type Node = {
     title: string,
     socialImage?: string
   },
-  html: string,
-  id: string
+  html?: string,
+  id?: string
 };
 
 export type Edge = {
   node: Node
 };
 
-export type Edges = Array<Edge>;
+export type Edges = Edge[];
 
-export type AllMarkdownRemark = {
+export type AllMarkdownRemarkData = {
   allMarkdownRemark: {
     edges: Edges,
   },

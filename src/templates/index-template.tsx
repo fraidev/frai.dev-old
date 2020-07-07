@@ -6,10 +6,10 @@ import Feed from '../components/Feed';
 import Page from '../components/Page';
 import Pagination from '../components/Pagination';
 import { useSiteMetadata } from '../hooks';
-import { PageContext, AllMarkdownRemark } from '../types';
+import { PageContext } from '../types';
 
 type Props = {
-  data: AllMarkdownRemark,
+  data: any,
   pageContext: PageContext
 };
 

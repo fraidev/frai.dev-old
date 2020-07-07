@@ -8,7 +8,7 @@ type Props = {
   edges: Edges
 };
 
-const Feed = ({ edges }: Props) => (
+const Feed: React.FC<Props> = ({ edges }: Props) => (
   <div className={styles['feed']}>
     {edges.map((edge) => (
       <div className={styles['feed__item']} key={edge.node.fields.slug}>
@@ -22,13 +22,13 @@ const Feed = ({ edges }: Props) => (
           </span>
         </div>
         <h2 className={styles['feed__item-title']}>
-          <Link className={styles['feed__item-title-link']} to={edge.node.fields.slug}>{edge.node.frontmatter.title}</Link>
+          <Link className={styles['feed__item-title-link']} to={edge.node.fields.slug ?? ""}>{edge.node.frontmatter.title}</Link>
         </h2>
         <p className={styles['feed__item-description']}>{edge.node.frontmatter.description}</p>
-        <Link className={styles['feed__item-readmore']} to={edge.node.fields.slug}>Read</Link>
+        <Link className={styles['feed__item-readmore']} to={edge.node.fields.slug ?? ""}>Read</Link>
       </div>
     ))}
   </div>
-);
+)
 
 export default Feed;

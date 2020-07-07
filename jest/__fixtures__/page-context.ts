@@ -1,4 +1,6 @@
-export const pageContext = {
+import { PageContext } from '../../src/types';
+
+export const pageContext: PageContext = {
   tag: 'test',
   category: 'test',
   currentPage: 1,

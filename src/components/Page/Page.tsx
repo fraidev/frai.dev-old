@@ -1,12 +1,12 @@
-import React, { useRef, useEffect } from 'react';
 import styles from './Page.module.scss';
+import React, { useRef, useEffect, ReactNode } from 'react';
 
 type Props = {
   title?: string,
-  children: Node
+  children: ReactNode
 };
 
-const Page = ({ title, children }: Props) => {
+const Page: React.FC<Props> = (props: Props) => {
   const pageRef = useRef<null | HTMLElement>(null) as React.MutableRefObject<HTMLInputElement>;;
 
   useEffect(() => {
@@ -16,9 +16,9 @@ const Page = ({ title, children }: Props) => {
   return (
     <div ref={pageRef} className={styles['page']}>
       <div className={styles['page__inner']}>
-        { title && <h1 className={styles['page__title']}>{title}</h1>}
+        {props.title && <h1 className={styles['page__title']}>{props.title}</h1>}
         <div className={styles['page__body']}>
-          {children}
+          {props.children}
         </div>
       </div>
     </div>

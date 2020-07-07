@@ -1,30 +1,26 @@
-// @flow strict
-import renderer from 'react-test-renderer';
-import { useStaticQuery, StaticQuery } from 'gatsby';
-import { siteMetadata } from '../../../jest/__fixtures__/site-metadata';
+import React from "react"
 import Layout from './Layout';
+import renderer from 'react-test-renderer';
+import { StaticQuery, useStaticQuery } from 'gatsby';
 import { RenderCallback } from '../../types';
+import siteMetadata from '../../../jest/__fixtures__/site-metadata';
 
 describe('Layout', () => {
   const props = {
     ...siteMetadata,
-    children: 'test',
+    children: null,
     description: 'test',
-    title: 'test'
+    title: 'test',
+    socialImage: ''
   };
 
   beforeEach(() => {
-    let staticQueryMock = StaticQuery as jest.Mock
-    let useStaticQueryMock = useStaticQuery as jest.Mock
-
-    staticQueryMock.mockImplementationOnce(
+    (StaticQuery as any).mockImplementationOnce(
       ({ render }: RenderCallback) => (
         render(props)
       ),
-      //TODO ver isso aqui
-      // useStaticQueryMock.mockReturnValue(props)
+      (useStaticQuery as jest.Mock).mockReturnValue(props)
     );
-
   });
 
   it('renders correctly', () => {

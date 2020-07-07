@@ -1,8 +1,7 @@
-// @flow strict
 import { useStaticQuery, graphql } from 'gatsby';
 
 const useCategoriesList = () => {
-  const { allMarkdownRemark } = useStaticQuery(
+  const query = useStaticQuery(
     graphql`
       query CategoriesListQuery {
         allMarkdownRemark(
@@ -17,7 +16,7 @@ const useCategoriesList = () => {
     `
   );
 
-  return allMarkdownRemark.group;
+  return query?.allMarkdownRemark?.group;
 };
 
 export default useCategoriesList;
